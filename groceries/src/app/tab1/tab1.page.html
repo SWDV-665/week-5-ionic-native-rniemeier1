@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--Grocery List-->
+  <ion-content>
+    <ion-list>
+
+      <ion-item-sliding *ngFor="let item of items; let i = index">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets\plate.jpg">
+          </ion-avatar>
+          <h2>{{item.name}}</h2>
+          <p>{{item.quantity}}</p>
+        </ion-item>
+        <ion-item-options side="start">
+          <button ion-button color="primary">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            Change Quantity
+          </button>
+        </ion-item-options>
+        <ion-item-options side="end">
+          <button (click)="removeItem(item, i)" ion-button color="primary">
+            <ion-icon name="trash-outline"></ion-icon>
+            Remove from Cart
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab bottom right edge>
+      <button (click)="addItem()" ion-fab ><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+  </ion-content>
+</ion-content>
+
