@@ -16,9 +16,13 @@
 
   <!--Grocery List-->
   <ion-content>
+
+    <h3 text-center *ngIf="loadItems().length === 0">
+      No items availiable in the list!
+    </h3>
     <ion-list>
 
-      <ion-item-sliding *ngFor="let item of items; let i = index">
+      <ion-item-sliding *ngFor="let item of loadItems(); let i = index">
         <ion-item>
           <ion-avatar item-start>
             <img src="assets\plate.jpg">
@@ -27,9 +31,9 @@
           <p>{{item.quantity}}</p>
         </ion-item>
         <ion-item-options side="start">
-          <button ion-button color="primary">
-            <ion-icon name="add-circle-outline"></ion-icon>
-            Change Quantity
+          <button (click)="editItem(item,i)" ion-button color="primary">
+            <ion-icon name="create"></ion-icon>
+            Edit Item
           </button>
         </ion-item-options>
         <ion-item-options side="end">
