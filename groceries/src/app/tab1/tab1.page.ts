@@ -34,6 +34,17 @@ export class Tab1Page {
       (await toast).present();
     }
 
+    async shareItem(item, index){
+      const itemName = item.name;
+     // this.DataService.removeItem(index);
+  
+      const toast = this.toastCtrl.create({
+        message: 'Shared ' + itemName + ".",
+        duration: 3000
+      });
+      (await toast).present();
+    }
+
     editItem(item, index){
       this.InputService.showPrompt(item, index);
     }

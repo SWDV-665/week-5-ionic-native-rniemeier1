@@ -35,9 +35,13 @@
             <ion-icon name="create"></ion-icon>
             Edit Item
           </button>
+          <button (click)="shareItem(item,i)" ion-button color="light">
+            <ion-icon name="share-alt"></ion-icon>
+            Share Item
+          </button>
         </ion-item-options>
         <ion-item-options side="end">
-          <button (click)="removeItem(item, i)" ion-button color="primary">
+          <button (click)="removeItem(item, i)" ion-button color="danger">
             <ion-icon name="trash-outline"></ion-icon>
             Remove from Cart
           </button>
